@@ -38,4 +38,6 @@ iPhone6 plus: n = 1.81
 * 建议： 开发微信小程序时设计师可以用 iPhone6 作为视觉稿的标准。
 
 
+#### 开发者工具预览时报错 iconPath="",file
+> 这个 bug 的原因是 app.json 里面list的iconPath为空
 
