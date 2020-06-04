@@ -41,3 +41,29 @@ iPhone6 plus: n = 1.81
 #### 开发者工具预览时报错 iconPath="",file
 > 这个 bug 的原因是 app.json 里面list的iconPath为空
 
+#### 将 page 定义为 component
+```
+// json
+
+{
+  "component": true
+}
+```
+```
+// js
+Component({
+
+  data: {
+    cards: [{}, {}, {}],
+    selected: 0
+  },
+  methods: {
+    updateSelected: function (event) {
+      const currentIndex = event.target.dataset.index
+      this.setData({
+        selected: currentIndex
+      });
+  }
+}
+})
+```
