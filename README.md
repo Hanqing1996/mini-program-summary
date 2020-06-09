@@ -67,3 +67,37 @@ Component({
 }
 })
 ```
+#### [数据监听](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/observer.html)
+> 通过 observers 实现。在一些数据字段被 setData 设置时，需要执行一些操作。
+* computed
+> this.data.sum 永远是 this.data.numberA 与 this.data.numberB 的和
+```
+Component({
+  attached: function() {
+    this.setData({
+      numberA: 1,
+      numberB: 2,
+    })
+  },
+  observers: {
+    'numberA, numberB': function(numberA, numberB) {
+      // 在 numberA 或者 numberB 被设置时，执行这个函数
+      this.setData({
+        sum: numberA + numberB
+      })
+    }
+  }
+})
+```
+* watch
+> 在 selected 更新后改变 content
+```
+  observers: {
+    'selected': function (selected) {
+      this.setData({
+        content: this.data.cards[selected].content
+      })
+    }
+  },
+```
+```
