@@ -105,3 +105,11 @@ Component({
 
 #### [微信小程序登录流程](https://developers.weixin.qq.com/ebook?action=get_post_info&token=935589521&volumn=1&lang=zh_CN&book=miniprogram&docid=000cc48f96c5989b0086ddc7e56c0a#_ftn5)
 [参考](https://juejin.im/post/5c335a4ee51d45527201668f)
+
+#### 获取节点高度
+> 在 component 中，必须放在 pageLifetimes 的 show 方法中
+```
+wx.createSelectorQuery().selectAll('.page').boundingClientRect(function (rect) {
+  console.log(rect[0].height)
+  }).exec()  
+```
