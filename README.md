@@ -165,7 +165,7 @@ console.log(appInstance.globalData)
 ```
 #### [component 中的 slot](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html)
 
-####
+#### 页面栈
 ```
 wx.navigateTo({
   url: '../issue/issue'
