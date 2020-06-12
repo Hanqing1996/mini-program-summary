@@ -113,3 +113,19 @@ wx.createSelectorQuery().selectAll('.page').boundingClientRect(function (rect) {
   console.log(rect[0].height)
   }).exec()  
 ```
+
+#### 页面跳转
+[参考](https://blog.csdn.net/qq_26585943/article/details/54584558)
+1.wx.navigateTo(OBJECT)
+2.wx.redirectTo(OBJECT)
+3.wx.switchTab(OBJECT)
+4.wx.navigateBack(OBJECT)
+```
+navigateTo是将原来的页面保存在页面栈中，在跳入到下一个页面的时候目标页面也进栈，只有在这个情况下点击手机的返回按钮才可以跳转到上一个页面；
+redirectTo和switchTab都是先清除栈中原来的页面，然后目标页面进栈，使用这两种跳转方式，都不能通过系统的返回键回到上一个页面，而是直接退出小程序；
+redirectTo使用的时候一定要配合tabBar或是页面里面可以再次跳转按钮，否则无法回到上一个页面；
+switchTab跳转的页面必须是tabBar中声明的页面；
+tabBar中定义的字段不能超过5个页面，小程序的页面栈层次也不能超过5层。
+navigateBack只能返回到页面栈中的指定页面，一般和navigateTo配合使用。
+wx.navigateTo 和 wx.redirectTo 不允许跳转到 tabbar 页面，只能用 wx.switchTab 跳转到 tabbar 页面
+```
