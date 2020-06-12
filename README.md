@@ -164,3 +164,17 @@ var appInstance = getApp()
 console.log(appInstance.globalData)
 ```
 #### [component 中的 slot](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html)
+
+####
+```
+wx.navigateTo({
+  url: '../issue/issue'
+}) 
+```
+会形成页面栈，之后可用 navigateBack 返回之前的页面
+```
+wx.navigateBack({
+  delta: 1
+})
+```
+
