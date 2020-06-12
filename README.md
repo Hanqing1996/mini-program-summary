@@ -149,4 +149,17 @@ wx.navigateTo 和 wx.redirectTo 不允许跳转到 tabbar 页面，只能用 wx.
   "navigationStyle": "custom"
 }
 ```
+#### 在 component 中获取全局数据
+```
+// app.js
 
+globalData: {
+  userInfo: null,
+  message:"hhh"
+}
+```
+```
+// issue.js
+var appInstance = getApp()
+console.log(appInstance.globalData)
+```
