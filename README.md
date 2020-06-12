@@ -177,4 +177,30 @@ wx.navigateBack({
   delta: 1
 })
 ```
-#### [toast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)
+#### [showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)
+1. icon 只接受三个值："none","success","loading"
+2. duration 规定了多久后 toast 自动消失
+```
+wx.showToast({
+  title: '发布成功',
+  icon:'success',
+  duration: 2000
+})
+```
+#### [showModal](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html)
+1. showCancel 为 fasle 时只显示一个"确定"按钮，且会自动居中
+2. modal 不会自动消失
+```
+ wx.showModal({
+    title: '提示',
+    content: '这是一个模态弹窗',
+    showCancel:false,
+    success (res) {
+      if (res.confirm) {
+        console.log('用户点击确定')
+      } else if (res.cancel) {
+        console.log('用户点击取消')
+      }
+    }
+  })
+```
