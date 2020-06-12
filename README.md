@@ -131,4 +131,22 @@ wx.navigateTo 和 wx.redirectTo 不允许跳转到 tabbar 页面，只能用 wx.
 ```
 
 #### 取消微信小程序自带导航栏
+* 所有页面都取消
 > 在app.json window 增加 navigationStyle:custom ，顶部导航栏就会消失
+
+* 特定页面取消（比如只有 issue 页面要隐藏）
+1. 保证已经在 app.json 的 pages 中注册页面
+```
+  "pages": [
+    "pages/issue/issue"
+  ],
+```
+2. issue.json
+```
+{
+  "component": true,
+  "usingComponents": {},
+  "navigationStyle": "custom"
+}
+```
+
