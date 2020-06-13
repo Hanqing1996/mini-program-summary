@@ -205,3 +205,13 @@ wx.showToast({
     }
   })
 ```
+
+#### class 绑定
+```		
+<view bindtap="createCard" class="editSubmit {{!actionValid?'invalid':''}}">制作电子名片</view>
+```
+#### style 绑定
+```
+<view class="nav-wrapper" style="height:{{statusHeight+40}}px">
+</view>
+```
