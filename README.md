@@ -190,6 +190,7 @@ wx.showToast({
 #### [showModal](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html)
 1. showCancel 为 fasle 时只显示一个"确定"按钮，且会自动居中
 2. modal 不会自动消失
+3. [content 内容支持换行，但是开发时编译结果无效，必须在真机上才能看到效果](https://developers.weixin.qq.com/community/develop/doc/000e4c8d13c368713f170bb8b56000)
 ```
  wx.showModal({
     title: '提示',
