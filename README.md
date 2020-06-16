@@ -220,3 +220,15 @@ wx.showToast({
 ```
  <input focus="true" />
 ```
+#### bindtap 传参
+> 利用 dataset 隐式传参，bindtap 的参数只能是 event,这与 vue 不同
+```
+<span wx:if="{{visible}}">
+  <span wx:for="{{myCards}}" data-index="{{index}}" bindtap="selectCard">{{item.title}}</span>
+</span>
+```
+```
+selectCard(event){
+  console.log(event.target.dataset.index)
+}
+```
