@@ -215,3 +215,8 @@ wx.showToast({
 <view class="nav-wrapper" style="height:{{statusHeight+40}}px">
 </view>
 ```
+#### 跳转到搜索页面后自动弹出键盘
+* connection-search
+```
+ <input focus="true" />
+```
