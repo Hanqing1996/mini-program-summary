@@ -17,11 +17,11 @@ App({
   }
 })
 ```
-
+---
 #### log.json 作用
 * logs.json 配置生成一个界面，顶部的颜色和文字你都可以在这个 json 文件里边定义好。
 * 每一个小程序页面也可以使用同名 .json 文件来对本页面的窗口表现进行配置，页面中配置项会覆盖 app.json 的 window 中相同的配置项。
-
+---
 #### rpx
 * 开发小程序用的是 rpx
 * rpx 转换成 px 是需要乘以一个系数的：
@@ -37,10 +37,10 @@ iPhone6 plus: n = 1.81
 * 也就是说，我们写 10rpx,在 iPhone6 上表现出来的效果就是 20px
 * 建议： 开发微信小程序时设计师可以用 iPhone6 作为视觉稿的标准。
 
-
+---
 #### 开发者工具预览时报错 iconPath="",file
 > 这个 bug 的原因是 app.json 里面list的iconPath为空
-
+---
 #### 将 page 定义为 component
 ```
 // json
@@ -67,6 +67,7 @@ Component({
 }
 })
 ```
+---
 #### [数据监听](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/observer.html)
 > 通过 observers 实现。在一些数据字段被 setData 设置时，需要执行一些操作。
 * computed
@@ -100,12 +101,12 @@ Component({
     }
   },
 ```
-
+---
 #### 微信小程序“是否授权XXX"的询问弹窗必须绑定按钮，不能用js唤起
-
+---
 #### [微信小程序登录流程](https://developers.weixin.qq.com/ebook?action=get_post_info&token=935589521&volumn=1&lang=zh_CN&book=miniprogram&docid=000cc48f96c5989b0086ddc7e56c0a#_ftn5)
 [参考](https://juejin.im/post/5c335a4ee51d45527201668f)
-
+---
 #### 获取节点高度
 > 在 component 中，必须放在 pageLifetimes 的 show 方法中
 ```
@@ -113,7 +114,7 @@ wx.createSelectorQuery().selectAll('.page').boundingClientRect(function (rect) {
   console.log(rect[0].height)
   }).exec()  
 ```
-
+---
 #### 页面跳转
 [参考](https://blog.csdn.net/qq_26585943/article/details/54584558)
 1.wx.navigateTo(OBJECT)
@@ -129,7 +130,7 @@ tabBar中定义的字段不能超过5个页面，小程序的页面栈层次也�
 navigateBack只能返回到页面栈中的指定页面，一般和navigateTo配合使用。
 wx.navigateTo 和 wx.redirectTo 不允许跳转到 tabbar 页面，只能用 wx.switchTab 跳转到 tabbar 页面
 ```
-
+---
 #### 取消微信小程序自带导航栏
 * 所有页面都取消
 > 在app.json window 增加 navigationStyle:custom ，顶部导航栏就会消失
@@ -149,6 +150,7 @@ wx.navigateTo 和 wx.redirectTo 不允许跳转到 tabbar 页面，只能用 wx.
   "navigationStyle": "custom"
 }
 ```
+---
 #### 在 component 中获取全局数据
 ```
 // app.js
@@ -163,8 +165,9 @@ globalData: {
 var appInstance = getApp()
 console.log(appInstance.globalData)
 ```
+---
 #### [component 中的 slot](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/wxml-wxss.html)
-
+---
 #### 页面栈
 ```
 wx.navigateTo({
@@ -177,6 +180,7 @@ wx.navigateBack({
   delta: 1
 })
 ```
+---
 #### [showToast](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showToast.html)
 1. icon 只接受三个值："none","success","loading"
 2. duration 规定了多久后 toast 自动消失
@@ -187,6 +191,7 @@ wx.showToast({
   duration: 2000
 })
 ```
+---
 #### [showModal](https://developers.weixin.qq.com/miniprogram/dev/api/ui/interaction/wx.showModal.html)
 1. showCancel 为 fasle 时只显示一个"确定"按钮，且会自动居中
 2. modal 不会自动消失
@@ -205,6 +210,7 @@ wx.showToast({
     }
   })
 ```
+---
 
 #### class 绑定
 ```		
@@ -215,11 +221,13 @@ wx.showToast({
 <view class="nav-wrapper" style="height:{{statusHeight+40}}px">
 </view>
 ```
+---
 #### 跳转到搜索页面后自动弹出键盘
 * connection-search
 ```
  <input focus="true" />
 ```
+---
 #### bindtap 传参
 > 利用 dataset 隐式传参，bindtap 的参数只能是 event,这与 vue 不同
 ```
@@ -232,7 +240,7 @@ selectCard(event){
   console.log(event.target.dataset.index)
 }
 ```
-
+---
 #### clickOutside
 > 弹窗显示后，点击除弹窗外的页面其他位置，则弹窗关闭
 ```
@@ -265,6 +273,7 @@ selectCard(event){
 
   },
 ```
+---
 #### query
 ```
 wx.navigateTo({
@@ -283,5 +292,5 @@ wx.navigateTo({
 
     },
 ```
-
+---
 #### component 的 attached 先于 onLoad 执行！
