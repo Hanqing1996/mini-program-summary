@@ -232,3 +232,36 @@ selectCard(event){
   console.log(event.target.dataset.index)
 }
 ```
+
+#### clickOutside
+> 弹窗显示后，点击除弹窗外的页面其他位置，则弹窗关闭
+```
+// connection.wxml
+
+<view class="page" bindtap="clickOutside">
+	<block wx:for="{{receivedCards}}">
+			<view class="postback" bindtap="postback" data-class="postback">回发名片</view>
+	</block>
+</view>
+```
+```
+// connection.js
+
+  // 点击“回发名片”后，会出现名片待选项弹窗，点击除弹窗外的其他位置后，弹窗消失
+  clickOutside(event){
+
+    const targetClass=event.target.dataset.class
+
+    if(this.data.visible){
+
+      // 若该次 tap 的目的是 postback
+      if(targetClass=='postback') return
+      if(!targetClass||targetClass!="myCard"){
+        this.setData({
+          visible:false
+        })
+      }
+    }
+
+  },
+```
