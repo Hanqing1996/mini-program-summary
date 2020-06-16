@@ -265,3 +265,21 @@ selectCard(event){
 
   },
 ```
+#### query
+```
+wx.navigateTo({
+   url: '../editCard/editCard?action=create'
+}) 
+```
+* component 在 onLaod 中处理 query
+```
+  methods: {
+    onLoad:function(query){
+      const {action}=query
+
+      this.setData({
+        edit:action==='create'
+      })
+
+    },
+```
