@@ -283,3 +283,5 @@ wx.navigateTo({
 
     },
 ```
+
+#### component 的 attached 先于 onLoad 执行！
