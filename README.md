@@ -295,3 +295,5 @@ wx.navigateTo({
 ---
 #### component 的 attached 先于 onLoad 执行！
 > 数据渲染应该放在 onLoad 中
+---
+#### block 不能加 class
