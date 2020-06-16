@@ -297,3 +297,5 @@ wx.navigateTo({
 > 数据渲染应该放在 onLoad 中
 ---
 #### block 不能加 class
+---
+#### [radio 的用法](https://developers.weixin.qq.com/miniprogram/dev/component/radio.html)
