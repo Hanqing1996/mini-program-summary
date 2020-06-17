@@ -104,9 +104,6 @@ Component({
 ---
 #### 微信小程序“是否授权XXX"的询问弹窗必须绑定按钮，不能用js唤起
 ---
-#### [微信小程序登录流程](https://developers.weixin.qq.com/ebook?action=get_post_info&token=935589521&volumn=1&lang=zh_CN&book=miniprogram&docid=000cc48f96c5989b0086ddc7e56c0a#_ftn5)
-[参考](https://juejin.im/post/5c335a4ee51d45527201668f)
----
 #### 获取节点高度
 > 在 component 中，必须放在 pageLifetimes 的 show 方法中
 ```
@@ -299,3 +296,16 @@ wx.navigateTo({
 #### block 不能加 class
 ---
 #### [radio 的用法](https://developers.weixin.qq.com/miniprogram/dev/component/radio.html)
+---
+#### 微信小程序登录
+* 登录流程
+1. 前端调用wx.login()，获得 code（有效期5分钟），将其返回给后端服务器。
+2. 后端服务器将 code 发送给微信服务器，换取 uniunID 和 session_key。
+3. 后端将 uniunID 和用户ID绑定，将用户ID返回给前端。上述1，2，3就叫做“用户登录”
+4. 前端存储用户ID，之后向后端发送请求(wx.request)带上用户ID，后端根据用户ID查询对应数据库记录
+5. 由于前端的用户ID不可能永久存储，所以必然有用户ID失效的时刻。此时前端需要重新调用wx.login()，待后端获取到 uniunID 后在数据库查询对应用户ID，再传给前端。这个过程就叫做“重新登录”。
+----
+* [wx.request](https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html)
+> 用于前端发送HTTP请求，注意不是只向微信服务器发送请求。
+* session_key
+> 开发者服务器和微信服务器的会话密钥
