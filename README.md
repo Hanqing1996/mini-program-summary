@@ -297,7 +297,7 @@ wx.navigateTo({
 ---
 #### [radio 的用法](https://developers.weixin.qq.com/miniprogram/dev/component/radio.html)
 ---
-#### 微信小程序登录
+#### [微信小程序登录](https://developers.weixin.qq.com/miniprogram/dev/framework/open-ability/login.html#%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B%E6%97%B6%E5%BA%8F)
 * 登录流程
 1. 前端调用wx.login()，获得 code（有效期5分钟），将其返回给后端服务器。
 2. 后端服务器将 code 发送给微信服务器，换取 uniunID 和 session_key。
