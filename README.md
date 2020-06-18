@@ -311,3 +311,7 @@ wx.navigateTo({
 > 用于前端发送HTTP请求，注意不是只向微信服务器发送请求。
 * session_key
 > 开发者服务器和微信服务器的会话密钥
+---
+#### wx.request
+* method 为 GET 时，data 为 query 数据
+* method 为 POST 时，data 为 body 数据
