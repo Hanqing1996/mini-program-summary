@@ -314,4 +314,7 @@ wx.navigateTo({
 ---
 #### wx.request
 * method 为 GET 时，data 为 query 数据
-* method 为 POST 时，data 为 body 数据
+* method 为 POST 时，data 为 body 数据，[且 header 值必须为 application/x-www-form-urlencoded](https://blog.csdn.net/RandomParty/article/details/79824499) 
+
+
+
