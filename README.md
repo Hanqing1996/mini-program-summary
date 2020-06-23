@@ -322,5 +322,14 @@ wx.navigateTo({
 #### [小程序如何支持 async/await](https://segmentfault.com/a/1190000021966277)
 ---
 #### [getApp不可以在 App 调用前，以及 App 内定义的函数中使用](https://developers.weixin.qq.com/miniprogram/dev/reference/api/getApp.html)
+```
+// 在 App 内部，直接访问this
+
+  onLaunch: function () {
+
+    const userId = await this.globalData.storage.get('userId')
+
+    }
+```
 ---
 
