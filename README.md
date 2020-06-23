@@ -332,4 +332,33 @@ wx.navigateTo({
     }
 ```
 ---
+#### 用 Promise 封装 wx.request
+```
+// 注意没有把 wx.request 的类型改为 Promise,只是用一个 Promise 包裹它，并根据 wx.request 的回调选择resolve ot reject 
+const fetch = (api, method, data, success) => {
+
+  return new Promise((resolve, reject) => {
+    wx.request({
+      url: url[api], // 就是拼接上前缀,此接口域名是开放接口，可访问
+      method: method == 'POST' ? 'POST' : 'GET', // 判断请求类型，除了值等于'post'外，其余值均视作get
+      data: data ? data : {},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: (res) => {
+        resolve(res)
+      },
+      fail: (err) => {
+        reject(err)
+      }
+    })
+  })
+}
+```
+```
+      const res = await fetch('login', 'GET', {
+        code
+      })
+      console.log(res)
+```
 
