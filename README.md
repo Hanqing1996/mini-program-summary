@@ -315,6 +315,9 @@ wx.navigateTo({
 #### wx.request
 * method 为 GET 时，data 为 query 数据
 * method 为 POST 时，data 为 body 数据，[且 header 值必须为 application/x-www-form-urlencoded](https://blog.csdn.net/RandomParty/article/details/79824499) 
+---
+### 为什么缓存要有有效期
+> 例如我们有一个新闻列表，为了更快的响应用户的请求，更快的加载页面，我们一般把列表缓存到本地，默认情况下如果本地有缓存，我们就不会重新请求 API，但是我们的新闻不可能不更新，更新后的内容就不会显示在小程序中。
 
 
 
