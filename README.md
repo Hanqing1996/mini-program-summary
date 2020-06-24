@@ -381,3 +381,19 @@ app.login()
 ---
 #### onLoad 和 onLaunch 的执行先后是不一定的（都是异步任务）
 > 所以我将 login,auth 等启动时任务放在了 home.js 的 onload 中
+---
+#### switchTab 的 url 要与 app.js 中一致（但要加前缀/）
+```
+// app.json
+      {
+        "text": "首页",
+        "pagePath": "pages/home/home",
+        "selectedIconPath": "/image/trend.png",
+        "iconPath": "/image/trend.png"
+      },
+````
+```
+wx.switchTab({
+    url: '/pages/home/home'
+})
+```
