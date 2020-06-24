@@ -361,4 +361,23 @@ const fetch = (api, method, data, success) => {
       })
       console.log(res)
 ```
-
+---
+#### 定义全局方法
+```
+// app.js
+App({
+    login:function(){
+    }
+})
+```
+```
+// home.js
+const app = getApp()
+app.login()
+```
+---
+#### [wx.navigateTo从子页面跳回父页面，页面不更新的问题](https://blog.csdn.net/qq_35585701/article/details/81162574)
+在 zhq-mail  中，我们是使用 vue-router 的路由守卫来进行更新的
+---
+#### onLoad 和 onLaunch 的执行先后是不一定的（都是异步任务）
+> 所以我将 login,auth 等启动时任务放在了 home.js 的 onload 中
