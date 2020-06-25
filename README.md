@@ -400,3 +400,7 @@ wx.switchTab({
 ---
 #### [阻止事件冒泡](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html)
 在处理 clickOutside 时有用到
+---
+#### [局域网通信](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/mDNS.html)
+* 当且仅当 IP 与手机 IP 处在同一网段且不与本机 IP 相同（一般来说，就是同一局域网，如连接在同一个 wifi 下）时，请求/连接才会成功。
+* 在这种情况下，不会进行安全域的校验，不要求必须使用 https/wss，也可以使用 http/ws。
