@@ -397,3 +397,6 @@ wx.switchTab({
     url: '/pages/home/home'
 })
 ```
+---
+#### [阻止事件冒泡](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html)
+在处理 clickOutside 时有用到
