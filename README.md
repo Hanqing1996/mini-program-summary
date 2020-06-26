@@ -406,3 +406,5 @@ wx.switchTab({
 * 在这种情况下，不会进行安全域的校验，不要求必须使用 https/wss，也可以使用 http/ws。
 ---
 #### [小程序app.wxss中的样式在自定义组件不生效](https://developers.weixin.qq.com/community/develop/doc/0008c20470c01023c246e588c50800)
+---
+#### [组件间通信](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/events.html)
