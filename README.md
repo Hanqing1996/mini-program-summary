@@ -408,3 +408,20 @@ wx.switchTab({
 #### [小程序app.wxss中的样式在自定义组件不生效](https://developers.weixin.qq.com/community/develop/doc/0008c20470c01023c246e588c50800)
 ---
 #### [组件间通信](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/events.html)
+---
+#### 分享小程序给微信好友
+> 点击带有  open-type="share" 的 button,就会触发 onShareAppMessage
+```
+<button open-type="share">发名片</button>
+```
+```
+onShareAppMessage: function (res) {
+    const {currentCard}= this.data
+    const {cardIndex,userId,username}=currentCard
+
+    return {
+	title: `我是${username},邀请您与我交换名片`,
+	path: `/pages/cardDetail/cardDetail?cardIndex=${cardIndex}&&userId=${userId}`
+    }
+}
+```
