@@ -436,3 +436,4 @@ onShareAppMessage: function (res) {
     })
 }
 ```
+如果是某个变量变化后，我们想采取进一步操作。但是该某个变量发生变化的时机很重要（比如是不是onLoad时变化）,那么不要放入 observer 中。
