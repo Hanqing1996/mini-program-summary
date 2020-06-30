@@ -425,3 +425,14 @@ onShareAppMessage: function (res) {
     }
 }
 ```
+---
+#### observer 的用法
+* 正确用法
+> currentCard 始终为 this.data.cards[selected]，所以可以视 currentCard 为一个计算属性
+```
+'selected': function (selected) {
+    this.setData({
+	currentCard: this.data.cards[selected]
+    })
+}
+```
