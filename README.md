@@ -441,3 +441,16 @@ onShareAppMessage: function (res) {
 #### [点击发布以后用wx.showToast显示发布成功后跳转](https://blog.csdn.net/LimonSea/article/details/84990051)
 ---
 #### [数据预拉取，可能有助于解决首页状态有切换的问题](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/pre-fetch.html)
+---
+#### 到底拉取数据
+```
+// share.js
+onReachBottom(){
+}
+```
+```
+// share.json
+{
+	"onReachBottomDistance":10
+}
+```
