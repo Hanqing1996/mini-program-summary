@@ -439,3 +439,5 @@ onShareAppMessage: function (res) {
 如果是某个变量变化后，我们想采取进一步操作。但是该某个变量发生变化的时机很重要（比如是不是onLoad时变化）,那么不要放入 observer 中。
 ---
 #### [点击发布以后用wx.showToast显示发布成功后跳转](https://blog.csdn.net/LimonSea/article/details/84990051)
+---
+#### [数据预拉取，可能有助于解决首页状态有切换的问题](https://developers.weixin.qq.com/miniprogram/dev/framework/ability/pre-fetch.html)
