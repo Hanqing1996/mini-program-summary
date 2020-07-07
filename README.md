@@ -454,3 +454,5 @@ onReachBottom(){
 	"onReachBottomDistance":10
 }
 ```
+---
+#### [无法使用useExtendedLib 扩展库引入的weui](https://developers.weixin.qq.com/community/develop/doc/0000ea7ef7cf28e2044ab4ebb54400)
