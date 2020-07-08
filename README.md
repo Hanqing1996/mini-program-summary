@@ -480,3 +480,24 @@ data:{
  focus: false
 }
 ```
+#### [open-data的userAvatarUrl怎么做成圆角](https://developers.weixin.qq.com/community/develop/doc/0002ead6ec8e50353fa7ccf6556800)
+```
+<view class='user-img'>
+
+<open-data   type="userAvatarUrl"></open-data>
+
+</view>
+
+
+.user-img{
+
+width: 250rpx;
+
+height: 250rpx;
+
+border-radius: 50%;
+
+overflow: hidden;
+
+}
+```
