@@ -456,3 +456,27 @@ onReachBottom(){
 ```
 ---
 #### [无法使用useExtendedLib 扩展库引入的weui](https://developers.weixin.qq.com/community/develop/doc/0000ea7ef7cf28e2044ab4ebb54400)
+---
+#### input 
+* 双向绑定
+```
+<input type="text" value="{{newCommentValue}}" bindinput="getInputValue"/>
+```
+```
+data: {
+  newCommentValue: ''
+},
+getInputValue(event) {
+    const {value: newCommentValue} = event.detail
+    this.setData({newCommentValue})
+}
+```
+* focus:自动聚焦
+```
+<input type="text" focus="{{focus}}"/>
+```
+```
+data:{
+ focus: false
+}
+```
