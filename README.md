@@ -501,3 +501,35 @@ overflow: hidden;
 
 }
 ```
+---
+#### 列表渲染
+* wx:for="{{positionsInCompanies}}"
+指定数据源
+* wx:for-item="company"
+指定数组元素名为 company
+* wx:for-index="companyIndex"
+指定数组下标名为 companyIndex
+> 注意不可写成 wx:for-index="company-index"
+
+```
+<block wx:for="{{positionsInCompanies}}" wx:for-item="company"  wx:for-index="companyIndex">
+{{companyIndex}}
+<block wx:for="{{company.positions}}" wx:for-item="positionName"  wx:for-index="positionIndex">
+    <view class="edidcard_row">
+	{{positionIndex}}
+	<label>职位：</label>
+	<input type="text" placeholder-class="place-holder" placeholder="请填写职位" value="{{positionName}}" bind:input="updatePosition" data-positionIndex="{{positionIndex}}"/>
+	<image class="add" src="{{imageUrlPrefix}}/add-address.svg" bindtap="addPosition"></image>
+    </view>
+</block>
+<view class="edidcard_row">
+    <label>单位：</label>
+    <input type="text" placeholder-class="place-holder" placeholder="请填写单位" value="{{company.companyName}}"/>
+    <image class="add" src="{{imageUrlPrefix}}/add-address.svg"></image>
+</view>
+</block>
+```
+
+
+
+
