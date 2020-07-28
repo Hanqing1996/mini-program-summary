@@ -529,7 +529,16 @@ overflow: hidden;
 </view>
 </block>
 ```
-
-
+---
+#### dataset 的坑
+> 传到 js 里的字段没有大写
+```
+<image data-companyIndex="{{companyIndex}}" bindtap="addCompany"></image>
+```
+```
+addCompany(event){
+    const {companyindex}=event.target.dataset
+}
+```
 
 
