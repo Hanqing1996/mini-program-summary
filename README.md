@@ -540,5 +540,19 @@ addCompany(event){
     const {companyindex}=event.target.dataset
 }
 ```
-
-
+---
+```
+<block wx:for="{{myCompany.positions}}" wx:for-item="positionName">
+	<span class="row-container" style="justify-content: center">
+	    <span class="home-item">{{positionName}}</span>
+	    <image class="uncheck" src="{{imageUrlPrefix}}/uncheck.svg"></image>
+	</span>
+</block>
+```
+等价于
+```
+<span  wx:for="{{myCompany.positions}}" wx:for-item="positionName" class="row-container" style="justify-content: center">
+    <span class="home-item">{{positionName}}</span>
+    <image class="uncheck" src="{{imageUrlPrefix}}/uncheck.svg"></image>
+</span>
+```
