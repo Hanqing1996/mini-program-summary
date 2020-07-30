@@ -556,3 +556,36 @@ addCompany(event){
     <image class="uncheck" src="{{imageUrlPrefix}}/uncheck.svg"></image>
 </span>
 ```
+---
+#### onLoad 和 onShow
+* 第一次进入某个页面，onLoad 和 onShow 都会被触发
+* 由A页面通过navigateTo进入B页面后，通过B页面左上角返回键可返回A页面，且只触发A页面的 onShow。此种情况下，若B页面的相关操作导致A页面的对应数据更新，则需要在A页面的onShow函数中拉取最新数据。
+```
+data: {
+    shares: [],
+    loading: false,
+    segment:0,
+    imageUrlPrefix: ''
+},
+methods: {
+    async onLoad() {
+        setImageUrlPrefix.call(this)
+        
+        this.setData({loading: true})
+        await this.fetchData()
+        this.alwaysUpdateRelativeData()
+        this.setData({loading: false})
+    },
+    async onShow() {
+        
+        // onload 正在执行，不必更新
+        if (this.data.loading) return
+        // 更新UI数据
+        await this.fetchData()
+        this.alwaysUpdateRelativeData()
+        
+    }
+}
+```
+
+
