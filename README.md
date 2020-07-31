@@ -587,5 +587,17 @@ methods: {
     }
 }
 ```
+---
+#### wx.redirectTo 和 wx.navigateTo
+* 点击 D 页面的返回键，返回 B 页面
+```
+A navigateTo B redirectTo C redirectTo D
+```
+* 点击 C 页面的返回键，返回 B 页面
+```
+A navigateTo B navigateTo C
+```
+
+
 
 
