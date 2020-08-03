@@ -1,4 +1,30 @@
 [参考](https://juejin.im/post/5b0ccd4e51882515861d2347)
+
+---
+#### 使用 we-ui 组件
+```
+// app.json
+
+"useExtendedLib": {
+"weui": true
+}
+```
+```
+// professional-identity.json
+
+  "usingComponents": {
+    "mp-actionSheet": "/miniprogram_npm/weui-miniprogram/actionsheet/actionsheet"
+  }
+```
+```
+// professional-identity.WXML
+
+    <mp-actionSheet bindactiontap="btnClick" show="{{showActionsheet}}" actions="{{groups}}" title="这是一个标题，可以为一行或者两行。">
+    </mp-actionSheet>
+```
+
+
+
 ---
 #### app.json 
 * 是当前小程序的全局配置，包括了小程序的所有页面路径、界面表现、网络超时时间、底部 tab 
