@@ -623,7 +623,14 @@ A navigateTo B redirectTo C redirectTo D
 ```
 A navigateTo B navigateTo C
 ```
-
+---
+#### input 禁止弹出键盘（也就是说 input 不用于输入）
+```
+<view class="row-container option" bindtap="showActionSheet">
+    <label style="margin-right: 20rpx">公司名称</label>
+    <input placeholder="请选择您所在的公司名称" model:value="{{companyName}}" disabled='disabled'/>
+</view>
+```
 
 
 
