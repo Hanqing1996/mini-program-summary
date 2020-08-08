@@ -631,6 +631,17 @@ A navigateTo B navigateTo C
     <input placeholder="请选择您所在的公司名称" model:value="{{companyName}}" disabled='disabled'/>
 </view>
 ```
-
+---
+#### isLoading,isEmpty 状态
+```
+<block wx:if="{{isLoading}}">
+    加载中
+</block>
+<block wx:elif="{{isEmpty}}">
+数据为空
+</block>
+<block wx:else>
+</block>
+```
 
 
