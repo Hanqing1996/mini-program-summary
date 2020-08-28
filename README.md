@@ -653,7 +653,64 @@ A navigateTo B navigateTo C
 ```
 ---
 #### 解决 wx.switchTab 不可以带 query 参数的问题
+其实算不上解决办法，只是把 query 参数放到全局的 app.globalData 里面。wx.switchTab 处写，tab 页面读
+```javascript
+// app.js
+
+App({
+    globalData: {
+    	...
+        tempQuery:{},
+    },
+...    
+```
+```javascript
+// editCard.js
+
+app.globalData.tempQuery={
+    IndexFromEditCard:cardIndex
+}
+
+wx.switchTab({
+    url: `/pages/home/home`
+})
+```
+```javascript
+// home.js
+
+async onShow() {
+    const {IndexFromEditCard}=app.globalData.tempQuery
+    app.globalData.tempQuery={} // 记得重置
+}
+```
+---
+#### canvas 踩坑
+> 业务需要个性化分享名片时的小程序封面。想到的办法是每次绘制包含名片数据的 canvas，然后转成图片。实践中采用了[wxml-to-canvas](https://developers.weixin.qq.com/miniprogram/dev/extended/component-plus/wxml-to-canvas.html) 这个包
+
+这里有几点要注意：
+1. wxml-to-canvas 是通过 npm 安装的。而想[让小程序支持 npm](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)，除了**详情->勾选“使用npm模块”**外，还需要“工具->构建npm”（坑爹文档没说）
+2. wxml 模板只支持 view、text、image 三种标签
+3. 由 canvas 得到图片这一步要有延时，因为 canvas 的绘制本身是比较耗时的。如果 canvas 没有生成完毕，就生成图片，得到的图片可能是空白或者只有部分内容的。
+```javascript
+updateCover:async function(){
+    // 生成 canvas
+    this.renderToCanvas()
+
+
+    setTimeout(async ()=>{
+	const src=await this.extraImage()
+
+	this.setData({src})
+
+	const pictureURL=await uploadImage(this.data.src)
+
+
+	console.log('图片路径');
+	console.log(pictureURL);
+    },3000)
 ```
 
-```
+
+
+
 
