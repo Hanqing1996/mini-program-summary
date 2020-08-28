@@ -613,14 +613,7 @@ methods: {
     }
 }
 ```
-* onLoad 的执行时机我没有查到具体的文档说明，不过我觉得，应该是通过**要跳转的页面**在不在**已有的栈**中来决定调不调用onLoad
-```
-if(要跳转的页面不在已有的栈中){
-  // 调用onLoad
-}else{
-  // 不调用onLoad
-}
-```
+* tab 页面间的切换，不会触发 onLoad
 ---
 #### wx.redirectTo 和 wx.navigateTo
 * 点击 D 页面的返回键，返回 B 页面
