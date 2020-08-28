@@ -651,5 +651,7 @@ A navigateTo B navigateTo C
 <block wx:else>
 </block>
 ```
+---
+#### 解决 wx.switchTab 不可以带 query 参数的问题
 
 
