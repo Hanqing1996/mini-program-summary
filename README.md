@@ -702,7 +702,17 @@ updateCover:async function(){
 	console.log(pictureURL);
     },3000)
 ```
+---
+#### 动态页面，点击 issue 图标请求授权。授权后再次点击 issue 图标才跳转到发布动态页面
+``` 
+<image class="messageInfo" src="../../toUploadImage/messageInfo.svg"/>
 
+<button wx:if="{{!isAuth}}" open-type="getUserInfo" bindgetuserinfo="auth" style="z-index: 100;position: fixed;">
+	<image class="issue" src="../../toUploadImage/issueShare.svg"/>
+</button>
+
+<image wx:else class="issue" bindtap="issueShare" src="../../toUploadImage/issueShare.svg"/>
+```
 
 
 
