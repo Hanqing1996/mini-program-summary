@@ -719,10 +719,16 @@ updateCover:async function(){
 * 现在由如下需求
 1. 点击点赞按钮，进行点赞
 2. 点击删除按钮，进行举报
-3. 点击动态的其它部分，跳转到详情页面
+3. 点击用户信息区域，无任何反应
+4. 点击动态的其它部分，跳转到详情页面
 * 解决方案
 ```html
 <view wx:for="{{shares}}" class="share" bindtap="seeDetail" data-id="{{item.shareId}}">
+    <view class="userInfo" catch:tap="tapUserInfo">
+        <iamge class="avatar"/>
+        <view>zhq691150</view>
+    </view>	
+	
     <view class="likeWrapper" catch:tap="likeShare" data-id="{{item.shareId}}">
         <image class="like"/>
         <view>赞</view>
@@ -736,6 +742,9 @@ updateCover:async function(){
 </view>
 ```
 ```
+tapUserInfo(){
+ // 这个函数无任何任何实际业务逻辑上的作用，只是为了防止 .userInfo 内部的元素的 tap 事件冒泡到 .share 处。也就是说 catch:tap="tapUserInfo" 实际是做了一层隔膜，让 .share 的 tap 事件不被激活
+}
 async seeDetail(event) {
     // currentTarget 为绑定 seeDetail 方法的元素
     const {id} = event.currentTarget.dataset
