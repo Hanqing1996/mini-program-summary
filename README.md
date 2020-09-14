@@ -713,6 +713,54 @@ updateCover:async function(){
 
 <image wx:else class="issue" bindtap="issueShare" src="../../toUploadImage/issueShare.svg"/>
 ```
+---
+#### 
+![wDcrcD.png](https://s1.ax1x.com/2020/09/14/wDcrcD.png)
+* 现在由如下需求
+1. 点击点赞按钮，进行点赞
+2. 点击删除按钮，进行举报
+3. 点击动态的其它部分，跳转到详情页面
+* 解决方案
+```html
+<view wx:for="{{shares}}" class="share" bindtap="seeDetail" data-id="{{item.shareId}}">
+    <view class="likeWrapper" catch:tap="likeShare" data-id="{{item.shareId}}">
+        <image class="like"/>
+        <view>赞</view>
+    </view>
+    
+    <view class="deleteWrapper" catch:tap="deleteShare" data-id="{{item.shareId}}">
+        <image class="delete"/>
+        <view>删除</view>
+    </view>
+    
+</view>
+```
+```
+async seeDetail(event) {
+    // currentTarget 为绑定 seeDetail 方法的元素
+    const {id} = event.currentTarget.dataset
+    ...
+}
+async deleteShare(event) {
+
+    const {id} = event.currentTarget.dataset
+    ...
+}
+async likeShare(event) {
+
+    const {id} = event.currentTarget.dataset
+    ...
+}
+```
+* 注意以下几点：
+1. 如果点击.delete,事件冒泡机制会导致 .deleteWrapper 的 tap 事件被触发，从而执行 .deleteWrapper
+2. 由于 .deleteWrapper 的 tap 事件是 catch 的，所以不会继续向外冒泡，从而保证 .share 的 tap 事件不会被触发，详见[微信小程序的事件冒泡与捕获](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html)
+
+
+
+
+
+
 
 
 
