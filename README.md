@@ -765,7 +765,8 @@ async likeShare(event) {
 1. 如果点击.delete,事件冒泡机制会导致 .deleteWrapper 的 tap 事件被触发，从而执行 .deleteWrapper
 2. 由于 .deleteWrapper 的 tap 事件是 catch 的，所以不会继续向外冒泡，从而保证 .share 的 tap 事件不会被触发，详见[微信小程序的事件冒泡与捕获](https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html)
 
-
+---
+[微信小程序全局样式无法作用于自定义组件的解决办法](https://segmentfault.com/a/1190000019563717)
 
 
 
