@@ -768,7 +768,9 @@ async likeShare(event) {
 ---
 [微信小程序全局样式无法作用于自定义组件的解决办法](https://segmentfault.com/a/1190000019563717)
 
-
+---
+#### 自定义组件
+* 一个页面只会调用一次 onLoad,所以一个页面的自定义子组件的 onLoad 是不会触发的
 
 
 
